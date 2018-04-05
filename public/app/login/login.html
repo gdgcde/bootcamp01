@@ -1,4 +1,4 @@
-<form id="form-login" role="form">
+<form name="formLogin" id="formLogin" role="form">
   <div>
     <div class="row">
       <div class="col-md-6">
@@ -8,15 +8,18 @@
     <br/>
     <div class="col-md-4 col-sm-4">
       <div class="form-group">
+          <div ng-show="mensaje" class="alert alert-danger">Error: {{mensaje}}</div>
+      </div>
+      <div class="form-group">
         <label for="email" class="">Email</label>
-        <input ng-model="usuario.email" type="text" class="form-control" id=email placeholder="Introduzca el email" required>
+        <input ng-model="usuario.email" type="email" class="form-control" id=email placeholder="Introduzca el email" required>
       </div>
       <div class="form-group">
         <label for="clave" class="">Clave</label>
         <input ng-model="usuario.clave" type="password" class="form-control" id=clave placeholder="Introduzca la clave" required>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-lg btn-primary btn-block btn-signin" ng-click="loginUsuario(usuario)">Acceder</button>
+        <button ng-disabled="formLogin.$invalid" type="submit" class="btn btn-lg btn-primary btn-block btn-signin" ng-click="loginUsuario(usuario)">Acceder</button>
       </div>
     </div>
   </div>

@@ -15,10 +15,10 @@ module.exports = {
     })
     .then(function (usuario) {
         if (!usuario) {
-            res.status(404).json("El usuario no existe");
+            res.status(404).json({mensaje:"El usuario no existe"});
         } else {
             if (usuario.clave !== clave) {
-                res.status(404).json("La clave no es correcta");
+                res.status(404).json({mensaje:"La clave no es correcta"});
             } else {
                 //Devolver los datos del usuario logueado           
                 if (params.gethash) {
@@ -28,7 +28,7 @@ module.exports = {
                     usuario: usuario
                   });
                 } else {
-                  res.status(200).json(usuario);
+                  res.status(200).json({usuario});
                 }
             }
         }
