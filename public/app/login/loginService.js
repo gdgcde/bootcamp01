@@ -8,18 +8,10 @@
     loginService.$inject = ['$http', 'config'];
 
     function loginService($http, config) {
-        this.loginUsuario        = loginUsuario;
+        this.loginUsuario = loginUsuario;
 
         function loginUsuario(usuario) {
-            
-            return $http.post(config.serviceUrl + 'login', usuario)
-            .then(function(result) {
-                //console.log(result);
-                return result.data;
-            })
-            .catch(function(err) {
-                console.log(err);
-            });
+            return $http.post(config.serviceUrl + 'login', usuario);
         }
     }
 })();
